@@ -80,8 +80,8 @@ describe('Platform', () => {
       }
 
       expect(broadcastError).to.exist();
-      expect(broadcastError.code).to.be.equal(3);
       expect(broadcastError.message).to.be.equal('State Transition is invalid: InvalidDocumentTypeError: Contract doesn\'t contain type undefinedType');
+      expect(broadcastError.code).to.be.equal(3);
       const [error] = broadcastError.data.errors;
       expect(error.name).to.equal('InvalidDocumentTypeError');
     });

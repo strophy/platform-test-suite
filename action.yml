@@ -12,10 +12,10 @@ inputs:
     default:
   dpns-contract-block-height:
     description: DPNS contract block height
-    value:
+    value:  ${{ steps.local_node.outputs.dpns-contract-block-height }}
   dpns-top-level-identity-id:
     description: DPNS top level identity ID
-    default:
+    default: --dpns-tld-identity-id=$DPNS_TOP_LEVEL_IDENTITY_ID 
   dpns-top-level-identity-private-key:
     description: DPNS top level identity private key
     default:

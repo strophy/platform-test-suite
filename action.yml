@@ -1,0 +1,34 @@
+name: 'Run Dash Platform Test Suite'
+description: 'Runs end-to-end and functional testing against a Dash network'
+inputs:
+  current-version:
+    description: Current version
+    default:
+  faucet-private-key:
+    description: Faucet private key
+    default:
+  dpns-contract-id:
+    description: DPNS contract ID
+    default:
+  dpns-contract-block-height:
+    description: DPNS contract block height
+    value:
+  dpns-top-level-identity-id:
+    description: DPNS top level identity ID
+    default:
+  dpns-top-level-identity-private-key:
+    description: DPNS top level identity private key
+    default:
+  sdk-install:
+    description: SDK install
+    default:
+runs:
+  using: 'docker'
+  image: 'dashpay/platform-test-suite'
+  args:
+    - ${{ inputs.current-version }}
+    - ${{ inputs.faucet-private-key }}
+    - ${{ inputs.dpns-top-level-identity-private-key }}
+    - ${{ inputs.dpns-top-level-identity-id }}
+    - ${{ inputs.dpns-contract-id }}
+    - ${{ inputs.sdk-install }}

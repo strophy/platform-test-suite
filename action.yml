@@ -24,7 +24,7 @@ inputs:
     default:
 runs:
   using: 'docker'
-  image: 'dashpay/platform-test-suite'
+  image: 'docker://dashpay/platform-test-suite'
   args:
     - ${{ inputs.current-version }}
     - ${{ inputs.faucet-private-key }}

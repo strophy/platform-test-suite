@@ -26,9 +26,11 @@ runs:
   using: 'docker'
   image: 'docker://dashpay/platform-test-suite'
   args:
+    - 127.0.0.1:3000:3010
     - ${{ inputs.current-version }}
     - ${{ inputs.faucet-private-key }}
-    - ${{ inputs.dpns-top-level-identity-private-key }}
-    - ${{ inputs.dpns-top-level-identity-id }}
     - ${{ inputs.dpns-contract-id }}
+    - ${{ inputs.dpns-contract-block-height }}
+    - ${{ inputs.dpns-top-level-identity-id }}
+    - ${{ inputs.dpns-top-level-identity-private-key }}
     - ${{ inputs.sdk-install }}

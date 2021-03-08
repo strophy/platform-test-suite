@@ -30,8 +30,8 @@ runs:
     - ${{ inputs.current-version }}
     - ${{ inputs.faucet-private-key }}
     - "--dpns-contract-id=${{ inputs.dpns-contract-id }}"
-    - ${{ env.dpns-contract-id }}
-    - "${{ env.dpns-contract-id }}"
+    # - ${{ env.dpns-contract-id }}
+    # - "${{ env.dpns-contract-id }}"
     - "${{ inputs.dpns-contract-block-height }}"
     - ${{ inputs.dpns-top-level-identity-id }}
     - ${{ inputs.dpns-top-level-identity-private-key }}

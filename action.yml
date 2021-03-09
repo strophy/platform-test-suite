@@ -9,10 +9,10 @@ inputs:
     default:
   dpns-contract-id:
     description: DPNS contract ID
-    default: ${{ env.dpns-contract-id }}
+    default: ${env.dpns-contract-id}
   dpns-contract-block-height:
     description: DPNS contract block height
-    default: env.dpns-contract-block-height
+    default: ${{ env.dpns-contract-block-height }}
   dpns-top-level-identity-id:
     description: DPNS top level identity ID
     default: --dpns-tld-identity-id=$DPNS_TOP_LEVEL_IDENTITY_ID 
@@ -30,8 +30,9 @@ runs:
     - ${{ inputs.current-version }}
     - ${{ inputs.faucet-private-key }}
     - "--dpns-contract-id-1=${{ inputs.dpns-contract-id }}"
-    - --dpns-contract-id-2=${{ env.dpns-contract-id }}
+    - --dpns-contract-id-2=${env.dpns-contract-id}
     - "${{ inputs.dpns-contract-block-height }}"
+    - "${inputs.dpns-contract-id}"
     - ${{ inputs.dpns-top-level-identity-id }}
     - ${{ inputs.dpns-top-level-identity-private-key }}
     - ${{ inputs.sdk-install }}

@@ -19,7 +19,6 @@ runs:
     - --network=regtest
     - --faucet-key=${{ inputs.faucet-private-key }}
     - --dpns-contract-id=${{ inputs.dpns-contract-id }}
-    - --dpns-contract-block-height=${{ inputs.dpns-contract-block-height }}
     - --dpns-tld-identity-id=${{ inputs.dpns-top-level-identity-id }}
-    - --dpns-tld-identity-private-key=${{ env.dpns-top-level-identity-private-key }}
+    - --dpns-tld-identity-private-key=${{ inputs.dpns-top-level-identity-private-key }}
     # - ${{ inputs.sdk-install }}

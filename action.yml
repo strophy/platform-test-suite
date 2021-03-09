@@ -17,11 +17,11 @@ runs:
     - name: Run platform test suite
       shell: bash
       run: |
-        docker run --network=host dashpay/platform-test-suite 127.0.0.1:3000:3010
-        --scope=platform
-        --network=regtest
-        --npm-install=${{ inputs.sdk-install }}
-        --faucet-key=${{ inputs.faucet-private-key }}
-        --dpns-contract-id=${{ inputs.dpns-contract-id }}
-        --dpns-tld-identity-id=${{ inputs.dpns-top-level-identity-id }}
+        docker run --network=host dashpay/platform-test-suite 127.0.0.1:3000:3010 \
+        --scope=platform \
+        --network=regtest \
+        --npm-install=${{ inputs.sdk-install }} \
+        --faucet-key=${{ inputs.faucet-private-key }} \
+        --dpns-contract-id=${{ inputs.dpns-contract-id }} \
+        --dpns-tld-identity-id=${{ inputs.dpns-top-level-identity-id }} \
         --dpns-tld-identity-private-key=${{ inputs.dpns-top-level-identity-private-key }}

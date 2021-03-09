@@ -1,21 +1,15 @@
 name: 'Run Dash Platform Test Suite'
 description: 'Runs end-to-end and functional testing against a Dash network'
 inputs:
-  current-version:
-    description: Current version
-    default:
   faucet-private-key:
     description: Faucet private key
     default:
   dpns-contract-id:
     description: DPNS contract ID
-    default: ${env.dpns-contract-id}
-  dpns-contract-block-height:
-    description: DPNS contract block height
-    default:
+    default: 
   dpns-top-level-identity-id:
     description: DPNS top level identity ID
-    default: --dpns-tld-identity-id=$DPNS_TOP_LEVEL_IDENTITY_ID 
+    default: ${env.dpns-top-level-identity-id}
   dpns-top-level-identity-private-key:
     description: DPNS top level identity private key
     default:
@@ -27,12 +21,10 @@ runs:
   image: 'docker://dashpay/platform-test-suite'
   args:
     - 127.0.0.1:3000:3010
-    - ${{ inputs.current-version }}
-    - ${{ inputs.faucet-private-key }}
-    - --dpns-contract-id-1=${{ inputs.dpns-contract-id }}
-    - --dpns-tld-identity-id=identity_id
-    - --dpns-contract-block-height=${env.dpns-contract-block-height}
-    - "${inputs.dpns-contract-id}"
-    - ${{ inputs.dpns-top-level-identity-id }}
-    - ${{ inputs.dpns-top-level-identity-private-key }}
-    - ${{ inputs.sdk-install }}
+    - --network=regtest
+    - --faucet-key=${{ inputs.faucet-private-key }}
+    - --dpns-contract-id=${{ inputs.dpns-contract-id }}
+    - --dpns-contract-block-height=${{ inputs.dpns-contract-block-height }}
+    - --dpns-tld-identity-id=${{ inputs.dpns-top-level-identity-id }}
+    - --dpns-tld-identity-private-key=${{ inputs.dpns-top-level-identity-private-key }}
+    # - ${{ inputs.sdk-install }}

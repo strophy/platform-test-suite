@@ -9,7 +9,7 @@ inputs:
     default:
   dpns-contract-id:
     description: DPNS contract ID
-    default: env.dpns-contract-id
+    default: ${{ env.dpns-contract-id }}
   dpns-contract-block-height:
     description: DPNS contract block height
     default: env.dpns-contract-block-height

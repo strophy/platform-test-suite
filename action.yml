@@ -3,19 +3,14 @@ description: 'Runs end-to-end and functional testing against a Dash network'
 inputs:
   faucet-private-key:
     description: Faucet private key
-    default:
   dpns-contract-id:
     description: DPNS contract ID
-    default: 
   dpns-top-level-identity-id:
     description: DPNS top level identity ID
-    default: ${env.dpns-top-level-identity-id}
   dpns-top-level-identity-private-key:
     description: DPNS top level identity private key
-    default:
   sdk-install:
     description: SDK install
-    default:
 runs:
   using: 'docker'
   image: 'docker://dashpay/platform-test-suite'
@@ -26,5 +21,5 @@ runs:
     - --dpns-contract-id=${{ inputs.dpns-contract-id }}
     - --dpns-contract-block-height=${{ inputs.dpns-contract-block-height }}
     - --dpns-tld-identity-id=${{ inputs.dpns-top-level-identity-id }}
-    - --dpns-tld-identity-private-key=${{ inputs.dpns-top-level-identity-private-key }}
+    - --dpns-tld-identity-private-key=${{ env.dpns-top-level-identity-private-key }}
     # - ${{ inputs.sdk-install }}

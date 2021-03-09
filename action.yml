@@ -12,7 +12,7 @@ inputs:
     default: ${env.dpns-contract-id}
   dpns-contract-block-height:
     description: DPNS contract block height
-    default: ${{ env.dpns-contract-block-height }}
+    default: ${env.dpns-contract-block-height}
   dpns-top-level-identity-id:
     description: DPNS top level identity ID
     default: --dpns-tld-identity-id=$DPNS_TOP_LEVEL_IDENTITY_ID 

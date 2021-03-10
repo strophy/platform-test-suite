@@ -12,7 +12,7 @@ inputs:
   sdk-install:
     description: SDK install
 runs:
-  using: 'composite'
+  using: composite
   steps:
     - name: Run platform test suite
       shell: bash
